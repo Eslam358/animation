@@ -1,0 +1,196 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.parent{
+    margin: 20px auto;
+    /* background-color: aqua; */
+    width: 14px;
+    height: 14px;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+}
+.parent span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    left: 0;
+    position: absolute;
+    transition: 0.5s;
+}
+.parent :nth-child(1){
+top: 0;
+}
+.parent :nth-child(2){
+top: 6px;
+}
+.parent :nth-child(3){
+top: 12px;
+}
+.parent:hover :nth-child(2){
+    opacity: 0;
+}
+.parent:hover :nth-child(1){
+    background-color: red;
+    transform: rotate(45deg);
+    top: 6px;
+}
+.parent:hover :nth-child(3){
+    top: 6px;
+    background-color: red;
+    transform:rotate(-45deg);
+}
+.parent_2{
+    width: 100%;
+    height: 100vh;
+    background-color: blueviolet;
+/* position: relative; */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.parent_2 div{
+    position: relative;
+    border: 2px solid green;
+    width: 100px;
+    height: 200px;
+    display: flex;
+    background-color: aliceblue;
+}
+.parent_2 div p{
+    background-color: cadetblue;
+    position: absolute;
+    width: 80%;
+    height: 50px;
+    /* margin: auto; */
+    bottom: 0;
+    left: 9px;
+}
+.parent_2::before{
+    content: "";
+    width: 300%;
+    /* z-index: -1; */
+    height: 100%;
+    background-color: black;
+    border-radius: 50%;
+    /* position: fixed; */
+    left: 50%;
+    transition: 2s;
+    transform: translateX(-50%) skew(0deg, 10deg);
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: wav 5s ease-in-out infinite alternate;
+}
+@keyframes wav {
+    from{
+        transform: translateX(-50%) skew(0deg, 10deg);
+    }
+    to{
+        transform: translateX(-40%) skew(-10deg, 0deg);;
+    }
+}
+.parent_3{
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: bisque;
+}
+.parent_3 span{
+    width: 100px;
+    height: 100px;
+    /* background-color: red; */
+    border-radius: 50%;
+    border-style: dotted solid;
+    border-color: green;
+    border-width: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%) rotate(0);
+    /* margin-top: -50px;
+    margin-left: -50px; */
+    animation: routat 1s linear infinite ;
+}
+.parent_3 span::after{
+    content: "";
+    width: 80px;
+    height: 80px;
+    /* background-color: red; */
+    border-radius: 50%;
+    border-style: dotted solid;
+    border-color: green;
+    border-width: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%) rotate(0);
+    /* margin-top: -40px;
+    margin-left: -40px; */
+    animation: routat_l 0.5s linear infinite ;
+}
+
+@keyframes routat{
+from{
+    transform:translate(-50%, -50%) rotate(0);
+}
+to{
+    transform:translate(-50%, -50%) rotate(360deg);
+}
+}
+@keyframes routat_l{
+from{
+    transform:translate(-50%, -50%) rotate(0);
+}
+to{
+    transform:translate(-50%, -50%) rotate(-360deg);
+}
+}
+.parent_4{
+    width: 100%;
+    height: 500px;
+    background-color: black;
+    color: white; 
+    text-align: center;
+    border: 2px solid red;
+    position: relative;
+
+}
+
+.parent_4 .nor{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+}
+.parent_4 .nor span{
+    border: 1px solid gold;
+    width: 100px;
+    height: 20px;
+    position: relative;
+    display: inline-block;
+    color: white;
+    transition: 1s;
+    z-index: 1;
+    mix-blend-mode: difference;
+}
+.parent_4 .nor::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 0;
+    
+    left: 0;
+    animation: bac 1s linear infinite alternate;
+    z-index: -1;
+}
+@keyframes bac {
+    from{
+        left: 0;
+    }
+    to{
+        left:calc(100% - 20px);
+    }
+}
